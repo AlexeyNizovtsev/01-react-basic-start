@@ -1,18 +1,16 @@
-import Header from './components/Header'
-import TeachingSection from './components/TeachingSection'
-import DifferencesSection from './components/DifferencesSection'
-import IntroSection from './components/IntroSection'
-
-function App() {
+ function App() {
   return (
-    <>
-      <Header></Header>
+    <div>
+      <header>
+        <h3>Result University</h3>
+
+        <span>Тут будет время</span>
+      </header>
+
       <main>
-        <IntroSection />
-        <TeachingSection />
-        <DifferencesSection />
+        <h1>Hello React!</h1>
       </main>
-    </>
+    </div>
   )
 }
 
