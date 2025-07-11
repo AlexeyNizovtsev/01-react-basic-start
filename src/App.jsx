@@ -1,32 +1,33 @@
-import Header from "./components/Header"
-import WayToTeach from "./components/WayToTeach"
-import Button from "./components/Button/Button"
-import { ways } from "./data" 
+import Header from "./components/Header/Header";
+import TeachingSection from "./components/TeachingSection";
+import ButtonSection from "./components/ButtonSection";
+import IntroSection from "./components/IntroSection";
+import TabsSection from "./components/TabsSection";
+import FeedbackSection from "./components/FeedbackSection";
+import { useState } from "react";
+import EffectSection from "./components/EffectsSection";
 
+export default function App() {
+  const [tab, setTab] = useState("effect");
 
- 
- export default function App() {
   return (
     <div>
       <Header />
       <main>
-        <section>
-          <h3>Наш подход к обучению</h3>
-          <ul>
-            {ways.map(way => <WayToTeach title={way.title} description={way.description}/>)}
-          </ul>
-        </section>
+        <IntroSection />
+        <TabsSection active={tab} onChange={(current) => setTab(current)} />
 
-        <section>
-          <h3>Чем мы отличаемся от других</h3>
-          <Button>Подход</Button>
-          <Button>Доступность</Button>
-          <Button>Концентрация</Button>
+        {tab === "main" && (
+          <>
+            <TeachingSection />
+            <ButtonSection />
+          </>
+        )}
 
-        </section>
-      
+        {tab === "feedback" && <FeedbackSection />}
+
+        {tab === "effect" && <EffectSection />}
       </main>
     </div>
-  )
+  );
 }
-
